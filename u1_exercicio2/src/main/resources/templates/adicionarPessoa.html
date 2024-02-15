@@ -32,49 +32,53 @@
 
     <h1 class="w3-margin-left">Formulário para adicionar pessoas:</h1>
 
+    <form th:action="@{/adicionarPessoa}" method="POST" th:object="${pessoa}">
+
     <div class="grid">
         <div class="w3-margin-left">            
             <p>Seu nomezinho*:</p>
-            <input class="w3-input w3-border" type="text" placeholder="Nome Completo">
+            <input class="w3-input w3-border" type="text" id="nome" placeholder="Nome Completo" th:field="*{nome}" required>
         </div>
         <div>
             <p>e-Mail*:</p>
-            <input class="w3-input w3-border" type="text" placeholder="nome@dominio.com">
+            <input class="w3-input w3-border" type="text" id="email" placeholder="nome@dominio.com" th:field="*{email}" required>
             <p class="w3-opacity" >Nunca divulgaremos :)</p>
     
         </div>
         <div class="w3-margin-right">         
              <p>Data de Nascimeto*:</p>
-             <input type="date" id="date" name="date">
+             <input type="date" id="dataNascimento" name="date" th:field="*{dataNascimento}" required>
         </div>
     </div>
     
     <fieldset class="w3-margin-left">
       <legend>Gênero*</legend>
       <label for="Masculino">
-        <input type="radio" id="Masculino" name="Genêro*" value="Masculino" checked>
+        <input type="radio" id="Masculino" name="Genêro*" value="Masculino" th:field="*{genero}"required checked>
         Masculino
       </label>
       <label for="Feminino">
-        <input type="radio" id="Feminino" name="Genêro*" value="Feminino">
+        <input type="radio" id="Feminino" name="Genêro*" value="Feminino" th:field="*{genero}" required>
         Feminino
       </label>
       <label for="Não informar">
-        <input type="radio" id="Não informar" name="Genêro*" value="Não informar">
+        <input type="radio" id="Não informar" name="Genêro*" value="Não informar" th:field="*{genero}" required>
         Não informar
       </label>
     </fieldset>
 
     <div class="grid">
       <div class="w3-margin-left">
-        <a href="adicionadaComSucesso.html"><button class="w3-button w3-block w3-blue">Adicionar</button></a>
+        <button type="submit" class="w3-button w3-block w3-blue">Adicionar</button>
     </div>
     <div class="w3-margin-right">
-      <button class="w3-button w3-block w3-blue-gray">Limpar</button>
+      <button type="reset" class="secundary w3-button w3-block w3-blue-gray">Limpar</button>
   </div>
 
     </div>
     <p class="w3-margin-left">* Campo obrigatório</p>
+
+  </form>
 
 </body>
 </html>
