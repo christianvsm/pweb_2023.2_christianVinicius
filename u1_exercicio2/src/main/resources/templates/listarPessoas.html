@@ -43,36 +43,21 @@
           <th>Editar</th>
           <th>Remover</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Nome da Primeira pessoa</td>
-          <td> <a href="malito:primeira@primeira.com" title="malito:primeira@primeira.com">primeira@primeira.com</a></td>
-          <td>10/10/2010</td>
-          <td>Não informado</td>
-          <td><a href="u1_exercicio1/editar/1">Editar</a></td>
-          <td><a href="u1_exercicio1/remover/1">Remover</a></td>
-        </tr>
+        <tr th:each="umaPessoa: ${todasAsPessoas}">
+          <td th:text="${umaPessoa.id}"></td>
 
-        <tr>
-          <td>2</td>
-          <td>Nome da Segunda pessoa</td>
-          <td> <a href="malito:segunda@segunda.com" title="malito:segunda@segunda.com">primeira@primeira.com</a></td>
-          <td>10/10/2000</td>
-          <td>Feminino</td>
-          <td><a href="u1_exercicio1/editar/2">Editar</a></td>
-          <td><a href="u1_exercicio1/remover/2">Remover</a></td>
-        </tr>
+          <td th:text="${umaPessoa.nome}"></td>
 
-        <tr>
-          <td>3</td>
-          <td>Nome da Terceira pessoa</td>
-          <td> <a href="malito:terceira@terceira.com" title="malito:terceira@terceira.com">primeira@primeira.com</a></td>
-          <td>11/11/2011</td>
-          <td>Masculino</td>
-          <td><a href="u1_exercicio1/editar/3">Editar</a></td>
-          <td><a href="u1_exercicio1/remover/3">Remover</a></td>
+          <td><a th:href="'malito:'+${umaPessoa.email}" th:text="${umaPessoa.email}"></a></td>
+          
+          <td th:text="${#temporals.format(umaPessoa.dataNascimento, 'dd/mm/yyyy')}"></td>
+          
+          <td th:text="${umaPessoa.genero}"></td>
+          
+          <td><a th:href="@{/editar/{id}(id=${umaPessoa.id})}">Editar</a></td>
+          
+          <td><a th:href="@{/remover/{id}(id=${umaPessoa.id})}">Remover</a></td>
         </tr>
-
       </table>
      
   </body>

@@ -8,11 +8,11 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.christian</groupId>
-	<artifactId>cadpessoas_christian</artifactId>
+	<groupId>br.com.xico</groupId>
+	<artifactId>cadpessoas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cadpessoas_christian</name>
-	<description>Cadastro de Pessoas by Christian em Pweb 2023.2</description>
+	<name>Cadastro de Pessoas by Xico</name>
+	<description>Cadastro de Pessoas by Xico em Pweb 2023.2</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -32,6 +32,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -62,6 +68,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -3,13 +3,19 @@ package br.christian.cadpessoas_christian.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -24,9 +30,7 @@ public class Pessoa implements Serializable {
     private String email;
     private String genero;
     
-    @Collumn(nullable = false)
+    @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
-    
-
 }
