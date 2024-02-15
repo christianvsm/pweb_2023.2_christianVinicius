@@ -36,4 +36,12 @@ public class PessoaController {
         return modelAndView;
     }
 
+    @GetMapping("/adicionarPessoas")
+    public ModelAndView adicionarPessoas(){
+        ModelAndView modelAndView = new ModelAndView("adicionarPessoas");
+        modelAndView.addObject(new Pessoa());
+        return modelAndView;
+    }
+
+
 }
