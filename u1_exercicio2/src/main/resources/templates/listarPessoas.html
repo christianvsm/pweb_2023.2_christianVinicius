@@ -50,7 +50,7 @@
 
           <td><a th:href="'malito:'+${umaPessoa.email}" th:text="${umaPessoa.email}"></a></td>
           
-          <td th:text="${#temporals.format(umaPessoa.dataNascimento, 'dd/mm/yyyy')}"></td>
+          <td th:text="${#temporals.format(umaPessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
           
           <td th:text="${umaPessoa.genero}"></td>
           
